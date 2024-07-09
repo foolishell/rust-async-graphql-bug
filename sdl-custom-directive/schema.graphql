@@ -1,0 +1,15 @@
+
+
+
+
+type Query {
+	add(a: Int!, b: Int! @testDirective(desc: "Desc for a") @testDirective(desc: "Desc for b")): Int!
+}
+
+
+directive @include(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+directive @testDirective(desc: String!) on ARGUMENT_DEFINITION
+schema {
+	query: Query
+}
